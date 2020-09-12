@@ -9,8 +9,8 @@ const INITIAL_MONSTER_MAX = 15
 const MAX_MONSTERS = 25
 const RESPAWN_INTERVAL = 5 * 30
 
-//const DUNGEON_SERVICE_ENDPOINT = '/generateDungeon/'
-const DUNGEON_SERVICE_ENDPOINT = 'http://localhost:5000/'
+const DUNGEON_SERVICE_ENDPOINT = '/generateDungeon/'
+//const DUNGEON_SERVICE_ENDPOINT = 'http://localhost:5000/'
 
 class Dungeon {
     /**
