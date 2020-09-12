@@ -119,8 +119,11 @@ b {
 .buttons a {
     display: block;
     width: 100%;
-    color: inherit;
     text-decoration: inherit;
+}
+
+a {
+    color: inherit;
 }
 
 .promo {
