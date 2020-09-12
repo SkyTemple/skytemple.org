@@ -1,0 +1,3 @@
+*.png
+!shadow.png
+sprites.json

@@ -1,0 +1,5 @@
+.idea/
+_riptide/
+*.xcf
+node_modules/
+js_out/

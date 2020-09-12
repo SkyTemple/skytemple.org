@@ -1,0 +1,17 @@
+project:
+  name: skytemple-org
+  src: .
+  app:
+    name: skytemple.org
+    services:
+      live-server:
+        image: gtramontina/live-server:1.2.1
+        port: 8080
+        roles:
+          - src
+          - main
+    commands:
+      npm:
+        $ref: /command/npm/node12
+      node:
+        $ref: /command/node/12

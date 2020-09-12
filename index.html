@@ -1,0 +1,157 @@
+<!doctype html>
+
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+
+    <title>SkyTemple - PMD Explorers of Sky ROM Editor</title>
+    <meta name="description" content="ROM Hacking editor for Pokémon Mystery Dungeon Explorers of Sky: SkyTemple">
+    <meta name="author" content="Parakoopa">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="SkyTemple - PMD Explorers of Sky ROM Editor">
+    <meta property="og:description"
+          content="ROM editor for Pokémon Mystery Dungeon Explorers of Sky. Let's you edit starters, graphics, scenes, dungeons and more!">
+    <meta property="og:site_name" content="SkyTemple">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skytemple.org">
+    <meta property="og:image" content="https://skytemple.org/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css?v=1.0">
+</head>
+
+<body>
+<canvas id="bgCanvas"></canvas>
+<!-- Content -->
+<div class="page-content">
+    <div class="logo">
+        <img src="/images/logo.png">
+        <div class="promo desktop">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/_0Td40iHeSg"
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <h1 class="slide-in"><span>SkyTemple</span></h1>
+        <h2 class="slide-in"><span>
+                ROM Editor for
+                <span class="nowrap">Pokémon Mystery Dungeon</span>
+                <span class="nowrap">Explorers of Sky</span>
+            </span></h2>
+        <section class="buttons">
+            <!-- I should probably just use flex boxes or grids, but I'm too paranoid about browser support -->
+            <table>
+                <tr>
+                    <td><a href="https://projectpokemon.org/home/files/file/4193-skytemple-pmd2-rom-edtior/">
+                        <div class="btn" style="background-color: #daf2de; border-color: #2e8a40;"><img src="/images/logo/download.png"> Download</div>
+                    </a></td>
+                    <td><span class="desc">Donwload the latest version: <b>0.0.4</b></span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://projectpokemon.org/home/forums/topic/57303-pmd2-skytemple-rom-editor-maps-scripts-debugger/">
+                        <div class="btn" style="background-color: #f5e1dc; border-color: #f56b47;"><img src="/images/logo/info.png"> Info</div>
+                    </a></td>
+                    <td><span class="desc">Find out more about the project on our Project Pokémon thread.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://discord.gg/4e3X36f">
+                        <div class="btn" style="background-color: #dae0f2; border-color: #647eca;"><img src="/images/logo/discord.png"> Discord</div>
+                    </a></td>
+                    <td><span class="desc">Join our Discord for discussions and support.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/skytemple">
+                        <div class="btn"><img src="/images/logo/github.png"> Github</div>
+                    </a></td>
+                    <td><span class="desc">Find the source codes of the project on Github.</span></td>
+                </tr>
+                <tr>
+                    <td><a href="https://ko-fi.com/parakoopa">
+                        <div class="btn" style="background-color: #fff2f2; border-color: #FF5E5B;"><img src="/images/logo/kofi.png"> Ko-fi</div>
+                    </a></td>
+                    <td><span class="desc">Want to support me? Consider buying me a coffee!</span></td>
+                </tr>
+            </table>
+            <h3>Randomizer</h3>
+            <table>
+                <tr>
+                    <td><a href="https://projectpokemon.org/home/files/file/4235-skytemple-randomizer/">
+                        <div class="btn" style="background-color: #daf2de; border-color: #2e8a40;"><img src="/images/logo/download.png"> Download</div>
+                    </a></td>
+                    <td><span class="desc">Downlod the latest version of the SkyTemple Randomizer: <b>0.0.3</b></span></td>
+                </tr>
+            </table>
+        </section>
+        <div class="promo mobile">
+            <div class="video-container">
+                <iframe id="ytvideo"
+                        src="https://www.youtube.com/embed/_0Td40iHeSg?enablejsapi=1"
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            Very small Disclaimer text goes here.<br>
+            May also have multiple lines.<br>
+            Also includes artist credits.
+        </div>
+    </div>
+</div>
+<script src="/js/polyfill.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/dungeon/dma.js"></script>
+<script src="/js/dungeon/dungeon.js"></script>
+<script src="/js/dungeon/monster.js"></script>
+<script src="/js/dungeon/sprite.js"></script>
+<script src="/js/dungeon/turn.js"></script>
+<script src="/js/bg.js"></script>
+<script>
+    var bg = new Bg(document.getElementById('bgCanvas'))
+    bg.start();
+
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('ytvideo', {
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+        console.log(player)
+    }
+
+    var wasPlaying = false;
+
+    function onPlayerStateChange(event) {
+        console.log(event)
+        if (!wasPlaying && event.data === YT.PlayerState.PLAYING) {
+            wasPlaying = true;
+            bg.stop();
+        } else if (!wasPlaying && event.data !== YT.PlayerState.PLAYING) {
+            bg.start();
+        }
+    }
+
+</script>
+</body>
+</html>
