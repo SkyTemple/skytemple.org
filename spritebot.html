@@ -1,0 +1,79 @@
+
+<!doctype html>
+
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+
+    <title>SpriteBot</title>
+    <meta name="description" content="A bot for Pokémon sprites and portraits">
+    <meta name="author" content="Parakoopa">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css?v=1.1">
+</head>
+
+<body>
+<canvas id="bgCanvas"></canvas>
+<!-- Content -->
+<div class="page-content">
+    <div class="content-box">
+        <h1>SpriteBot</h1>
+        <p>SpriteBot is a Discord Bot that allows you to download and upload sheets of sprites and portraits for Pokémon in the style of Explorers of Sky.</p>
+        <p>These sprites and portraits are free to use in your own PMD fan project or ROM hack!</p>
+        <p>The bot is active on some PMD-related community servers, such as the SkyTemple server.
+            The bot was made by <a href="https://github.com/audinowho" target="_blank">Audino</a>.</p>
+        <h2>Commands and List of Sprites & Portraits</h2>
+        <p>You can find a list of sprites and portraits with the status in the bot's info channel, usually called #sprite-info.
+            There you also find a full list of commands.</p>
+        <p>To interact with the bot, use the #spritebot channel. Submissions for new sprites and portraits are done via channels called #sprite-submissions or #submissions.</p>
+        <h2>Portraits</h2>
+        <p>Portraits are shown when Pokémon are speaking. There are various expressions available, not all of them exist for all Pokémon yet.
+           All portraits are 40x40px images with a maximum of 15 colors each.</p>
+        <h3>Downloading Portraits</h3>
+        <p>To download a portait, type <span class="pre">"!portrait &lt;Pokémon Name&gt; [Pokémon Form] [Shiny] [Gender]"</span>.<br>Everything except for the Pokémon name is optional.</p>
+        <p>You can then download the image that the bot gives you.<br>You can find a full list of existing Pokémon forms in the bot's info channel.</p>
+        <p class="centered"><img src="/images/spritebot/download_portrait.png"></p>
+        <h3>Importing Portraits in SkyTemple</h3>
+        <p><b><em>NOTE: This requires the current beta version of SkyTemple. If you want to do this with the public 0.0.4 version,
+            you need to cut the image into separate pieces and import them as explained in SkyTemple.</em></b></p>
+        <p>To import a portrait sheet into SkyTemple, select the Pokémon you want to edit,
+            go to "Portraits", and select "... from one sheet (SpriteBot format)" from the "Import" button.</p>
+        <p>Using the "Export" button you can export existing portraits in the SpriteBot format for uploading.</p>
+        <p class="centered"><img src="/images/spritebot/import_portrait.png"></p>
+        <h3>Uploading new Portraits</h3>
+        <p>To upload a new portrait for a Pokémon that doesn't exist yet, first request the portrait for this Pokémon (make sure to add the gender, form and or shiny setting if you need to!).</p>
+        <p>You will then be given a template file. This file will describe to you where each portrait has to go. If your portrait has different images for the flipped versions, fill them out as well, otherwise leave them empty or remove them.</p>
+        <p class="centered"><img src="/images/spritebot/upload_portrait.png"></p>
+        <p>After you have modified the template, upload that file <b>with the exact filename</b> in the #submissions (or #spritebot-submissions) channel.
+            Our reviewers will then check the portrait and either <em>accept</em> or <em>decline</em> it with constructive criticism on how to improve it.</p>
+        <h2>Sprites</h2>
+        <p>Sprites are not avaiable yet.</p>
+        <p class="centered"><a href="/">skytemple.org</a></p>
+    </div>
+</div>
+<script src="/js/polyfill.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/dungeon/dma.js"></script>
+<script src="/js/dungeon/dungeon.js"></script>
+<script src="/js/dungeon/monster.js"></script>
+<script src="/js/dungeon/sprite.js"></script>
+<script src="/js/dungeon/turn.js"></script>
+<script src="/js/bg.js"></script>
+<script>
+    var bg = new Bg(document.getElementById('bgCanvas'))
+    bg.start();
+</script>
+</body>
+</html>
