@@ -140,6 +140,25 @@ a {
     letter-spacing: 1px;
 }
 
+.link-list {
+    margin: 0;
+    padding: 0;
+}
+
+.link-list li {
+    display: inline-block;
+    font-size: 0.6em;
+}
+
+.link-list li:after {
+    content: ' | ';
+    font-weight: 100;
+}
+
+.link-list li:last-of-type:after {
+    display: none;
+}
+
 .video-container {
     position: relative;
     padding-bottom: 50.25%;

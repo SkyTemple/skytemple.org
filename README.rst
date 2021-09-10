@@ -8,7 +8,7 @@ skytemple.org
 .. |logo| image:: https://raw.githubusercontent.com/SkyTemple/skytemple/master/skytemple/data/icons/hicolor/256x256/apps/skytemple.png
 
 .. |discord| image:: https://img.shields.io/discord/710190644152369162?label=Discord
-    :target: https://discord.gg/4e3X36f
+    :target: https://discord.gg/skytemple
     :alt: Discord
 
 Website for the SkyTemple project.
