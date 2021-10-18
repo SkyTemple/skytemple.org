@@ -513,4 +513,9 @@ a {
     .duskako-content-inner .duskako-seperator {
         display: none;
     }
+    .island {
+        flex: 0 1 320px;
+        margin-right: 0px;
+        position: relative;
+    }
 }
