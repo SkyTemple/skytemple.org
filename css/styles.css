@@ -122,6 +122,24 @@ b {
     text-decoration: inherit;
 }
 
+.buttons .multi-buttons > div {
+    display: flex;
+    gap: 12px;
+}
+
+.buttons .multi-buttons > div > * {
+    flex: 1;
+}
+
+.buttons .multi-buttons .btn {
+    width: auto;
+}
+
+.buttons .multi-buttons img {
+    margin: auto;
+    float: none;
+}
+
 a {
     color: inherit;
 }
