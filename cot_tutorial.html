@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+
+    <title>SkyTemple - c-of-time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css?v=3.0">
+</head>
+
+<body>
+<canvas id="bgCanvas"></canvas>
+<!-- Content -->
+<div class="page-content">
+    <div class="content-box">
+        <h1>c-of-time</h1>
+        <p>The c-of-time tutorial video is still under construction. In the meantime you can read the documentation of c-of-time and Rust of Darkness.</p>
+        <ul>
+            <li><a href="https://github.com/skytemple/c-of-time#c-of-time">c-of-time README</a>. Start here if you want to write patches in C.</li>
+            <li><a href="https://github.com/skytemple/c-of-time/tree/main/rust#rust-of-darkness">Rust of Darkness README</a>. Start here if you want to write patches in Rust (and optionally C).</li>
+        </ul>
+
+        <p class="centered"><a href="/">skytemple.org</a></p>
+    </div>
+</div>
+<script src="/js/polyfill.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/dungeon/dma.js"></script>
+<script src="/js/dungeon/dungeon.js"></script>
+<script src="/js/dungeon/monster.js"></script>
+<script src="/js/dungeon/sprite.js"></script>
+<script src="/js/dungeon/turn.js"></script>
+<script src="/js/bg.js"></script>
+<script>
+    var bg = new Bg(document.getElementById('bgCanvas'))
+    bg.start();
+</script>
+</body>
+</html>
