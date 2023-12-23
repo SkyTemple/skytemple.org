@@ -196,7 +196,7 @@ class Dungeon {
             }
             return rules
         } catch (err) {
-            console.warn('Failed loading dungeon from backend. Falling back to random.')
+            console.warn('Failed loading dungeon from backend. Falling back to empty.')
             console.warn(err)
             return this._fallbackMapGenerator()
         }
@@ -213,26 +213,7 @@ class Dungeon {
             const row = []
             rules.push(row)
             for (let x = 0; x < this.width; x++) {
-                switch (Math.floor(Math.random() * 11)) {
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        row.push(DmaType.FLOOR)
-                        break
-                    case 6:
-                    case 7:
-                    case 8:
-                        row.push(DmaType.WALL)
-                        break
-                    case 9:
-                    case 10:
-                    default:
-                        row.push(DmaType.WATER)
-                        break
-                }
+                row.push(DmaType.FLOOR)
             }
         }
         return rules;
