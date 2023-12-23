@@ -51,13 +51,14 @@ class Bg {
         this.fpsTimes = []
         this.fps = 0
         this.fpsStrikes = 0
+        this.darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
 
     async start() {
         if (!this.interval) {
-        await this._init()
-        this._loop()
-        this.interval = setInterval(this._loop.bind(this), 1000 / FPS)
+            await this._init()
+            this._loop()
+            this.interval = setInterval(this._loop.bind(this), 1000 / FPS)
         }
     }
 
@@ -69,7 +70,8 @@ class Bg {
     async _init() {
         this.dungeon = new Dungeon(
             Math.ceil(CANVAS_WIDTH / CHUNK_DIM / CELL_DIMENSIONS),
-            Math.ceil(CANVAS_HEIGHT / CHUNK_DIM / CELL_DIMENSIONS)
+            Math.ceil(CANVAS_HEIGHT / CHUNK_DIM / CELL_DIMENSIONS),
+            this.darkMode
         )
         await this.dungeon.load()
     }
@@ -148,7 +150,11 @@ class Bg {
             }
         }
 
-        this.ctx.fillStyle = "rgba(253, 247, 238, 0.5)";
+        if (this.darkMode) {
+            this.ctx.fillStyle = "rgba(2, 5, 10, 0.6)";
+        } else {
+            this.ctx.fillStyle = "rgba(253, 247, 238, 0.5)";
+        }
         this.ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
     }
 

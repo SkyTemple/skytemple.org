@@ -1,5 +1,6 @@
 const CHUNK_DIM = 3 * 8
 const DUNGEON_IMAGE_SRC = '/images/dungeon/dungeon.png'
+const DUNGEON_IMAGE_DARK_SRC = '/images/dungeon/dungeon_dark.png'
 const DUNGEON_IMAGE_ROW_SIZE = 16
 const DUNGEON_DMA_SRC = '/images/dungeon/dungeon.dma'
 const CELL_DIMENSIONS = 10
@@ -9,7 +10,7 @@ const INITIAL_MONSTER_MAX = 15
 const MAX_MONSTERS = 25
 const RESPAWN_INTERVAL = 5 * 30
 
-const DUNGEON_SERVICE_ENDPOINT = '/generateDungeon/'
+const DUNGEON_SERVICE_ENDPOINT = 'https://skytemple.org/generateDungeon/'
 //const DUNGEON_SERVICE_ENDPOINT = 'http://localhost:5000/'
 
 class Dungeon {
@@ -18,7 +19,7 @@ class Dungeon {
      * @param {number} widthInCells
      * @param {number} heightInCells
      */
-    constructor(widthInCells, heightInCells) {
+    constructor(widthInCells, heightInCells, darkMode) {
         this.bgCanvas = document.createElement('canvas')
         this.bgCtx = this.bgCanvas.getContext("2d")
         this.renderCanvas = document.createElement('canvas')
@@ -34,6 +35,7 @@ class Dungeon {
         this.map = null;
         this.mapCollision = null
         this.opacity = 0
+        this.darkMode = darkMode
 
         this.turnManager = new TurnManager(new IdlePlayer())
         this.spriteRegistry = new SpriteRegistry()
@@ -75,6 +77,8 @@ class Dungeon {
         this.turnManager.tick()
         if (this.opacity < 1) {
             this.opacity += 0.04
+        } else {
+            this.opacity = 1
         }
         this.renderCtx.globalAlpha = this.opacity
         this.renderCtx.drawImage(this.getBackgroundImage(), 0, 0)
@@ -130,7 +134,11 @@ class Dungeon {
 
     async _loadBackgroundImage() {
         const mapPromise = this._loadMap()
-        const dpcPromise = loadImage(DUNGEON_IMAGE_SRC)
+        let imageSrc = DUNGEON_IMAGE_SRC
+        if (this.darkMode) {
+            imageSrc = DUNGEON_IMAGE_DARK_SRC
+        }
+        const dpcPromise = loadImage(imageSrc)
         const dmaBin = new Uint8Array(await xhr('GET', DUNGEON_DMA_SRC, 'arraybuffer'))
         const dpc = await dpcPromise
         const dma = new Dma(dmaBin)
