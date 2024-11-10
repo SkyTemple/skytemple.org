@@ -39,7 +39,9 @@
         <img src="/images/logo.png">
         <div class="promo desktop">
             <div class="video-container">
-                <iframe id="desktopvideo" title="SkyTemple 1.0.0 - RELEASE TRAILER - Make your own PMD games!" src="https://vids.capypara.de/videos/embed/ded15a4b-1e2e-4df6-9bb0-fd1e31987fab?api=1" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups" width="581" height="322" frameborder="0"></iframe>
+                <iframe src="https://www.youtube.com/embed/sAfNOmss0tw"
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -102,7 +104,10 @@
         </section>
         <div class="promo mobile">
             <div class="video-container">
-                <iframe id="mobilevideo" title="SkyTemple 1.0.0 - RELEASE TRAILER - Make your own PMD games!" src="https://vids.capypara.de/videos/embed/ded15a4b-1e2e-4df6-9bb0-fd1e31987fab?api=1" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups" width="581" height="322" frameborder="0"></iframe>
+                <iframe id="ytvideo"
+                        src="https://www.youtube.com/embed/sAfNOmss0tw?enablejsapi=1"
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
             </div>
         </div>
         <div>
@@ -132,38 +137,39 @@
 <script src="/js/dungeon/sprite.js"></script>
 <script src="/js/dungeon/turn.js"></script>
 <script src="/js/bg.js"></script>
-<script src="https://unpkg.com/@peertube/embed-api/build/player.min.js"></script>
 <script>
     window.addEventListener("load", function() {
         var bg = new Bg(document.getElementById('bgCanvas'))
         bg.start();
     });
 
-    var playerDesktop = new PeerTubePlayer(document.querySelector('#desktopvideo'));
-    var playerMobile = new PeerTubePlayer(document.querySelector('#mobilevideo'));
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('ytvideo', {
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+        console.log(player)
+    }
+
     var wasPlaying = false;
 
-    playerDesktop.ready.then(() => {
-        playerDesktop.addEventListener('playbackStatusChange', (event) => {
-            if (!wasPlaying && event === "playing") {
-                wasPlaying = true;
-                bg.stop();
-            } else if (wasPlaying && event !== "playing") {
-                bg.start();
-            }
-        })
-    });
-
-    playerMobile.ready.then(() => {
-        playerMobile.addEventListener('playbackStatusChange', (event) => {
-            if (!wasPlaying && event === "playing") {
-                wasPlaying = true;
-                bg.stop();
-            } else if (wasPlaying && event !== "playing") {
-                bg.start();
-            }
-        })
-    });
+    function onPlayerStateChange(event) {
+        console.log(event)
+        if (!wasPlaying && event.data === YT.PlayerState.PLAYING) {
+            wasPlaying = true;
+            bg.stop();
+        } else if (!wasPlaying && event.data !== YT.PlayerState.PLAYING) {
+            bg.start();
+        }
+    }
 
 </script>
 </body>
