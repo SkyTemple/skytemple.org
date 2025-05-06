@@ -425,6 +425,7 @@ a {
     text-shadow: none;
     color: #dae0f2;
     position: relative;
+    z-index: 100;
 }
 
 .duskako-content-inner {
